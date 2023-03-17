@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder(toBuilder = true)
 public class Beneficiario {
-
     Integer id;
     Boolean estudiante;
     Boolean dependiente;

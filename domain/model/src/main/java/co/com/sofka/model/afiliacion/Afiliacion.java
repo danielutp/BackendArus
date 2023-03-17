@@ -23,4 +23,5 @@ public class Afiliacion {
     Asesor asesor;
     Beneficiario beneficiario;
     Causante causante;
+    String idSbdcpc;
 }
