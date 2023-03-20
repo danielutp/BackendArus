@@ -12,12 +12,12 @@ import java.util.Date;
 @Builder(toBuilder = true)
 public class Persona {
 
-    Integer id;
-    Integer identificacion;
-    String tipoIdentificacion;
-    String nombres;
-    String apellidos;
-    Date fechaNacimiento;
-    String genero;
+    private Integer id;
+    private Integer identificacion;
+    private String tipoIdentificacion;
+    private String nombres;
+    private String apellidos;
+    private Date fechaNacimiento;
+    private String genero;
 
 }

@@ -16,11 +16,12 @@ import java.util.Date;
 @Builder(toBuilder = true)
 public class Afiliacion {
 
-    Integer id;
-    Date fechaAfiliacion;
-    String fondo;
-    Renta renta;
-    Asesor asesor;
-    Beneficiario beneficiario;
-    Causante causante;
+    private Integer id;
+    private Date fechaAfiliacion;
+    private String fondo;
+    private Renta renta;
+    private Asesor asesor;
+    private Beneficiario beneficiario;
+    private Causante causante;
+    private String idSbdcpc;
 }
