@@ -1,8 +1,7 @@
-package co.com.sofka.jpa.dto.causante;
+package co.com.sofka.jpa.causante;
 
-import co.com.sofka.jpa.dto.afiliacion.AfiliacionDto;
-import co.com.sofka.jpa.dto.persona.PersonaDto;
-import com.sun.istack.NotNull;
+import co.com.sofka.jpa.afiliacion.AfiliacionDto;
+import co.com.sofka.jpa.persona.PersonaDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,7 +23,7 @@ public class CausanteDto {
     private Integer id;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "id")
+    @JoinColumn(name = "idPersona", referencedColumnName = "id")
     private PersonaDto personaDto;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "causanteDto")

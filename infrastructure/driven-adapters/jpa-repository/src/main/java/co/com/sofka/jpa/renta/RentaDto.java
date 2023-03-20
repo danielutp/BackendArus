@@ -1,6 +1,6 @@
-package co.com.sofka.jpa.dto.renta;
+package co.com.sofka.jpa.renta;
 
-import co.com.sofka.jpa.dto.afiliacion.AfiliacionDto;
+import co.com.sofka.jpa.afiliacion.AfiliacionDto;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,15 +23,12 @@ public class RentaDto {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @NotNull
     @Column(name = "fechaSolicitud")
     private Date fechaSolicitud;
 
-    @NotNull
     @Column(name = "salario")
     private Double salario;
 
-    @NotNull
     @Column(name = "mesesCotizando")
     private Integer mesesCotizando;
 

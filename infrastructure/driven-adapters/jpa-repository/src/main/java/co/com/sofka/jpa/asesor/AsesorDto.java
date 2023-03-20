@@ -1,7 +1,7 @@
-package co.com.sofka.jpa.dto.asesor;
+package co.com.sofka.jpa.asesor;
 
-import co.com.sofka.jpa.dto.afiliacion.AfiliacionDto;
-import co.com.sofka.jpa.dto.persona.PersonaDto;
+import co.com.sofka.jpa.afiliacion.AfiliacionDto;
+import co.com.sofka.jpa.persona.PersonaDto;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.List;
 
 @Data
@@ -26,10 +25,10 @@ public class AsesorDto {
     private Integer id;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "id")
+    @JoinColumn(name = "idPersona", referencedColumnName = "id")
     private PersonaDto personaDto;
 
-    @NotNull
+
     @Column(name = "nombre")
     private String nombre;
 

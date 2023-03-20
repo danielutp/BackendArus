@@ -1,9 +1,9 @@
-package co.com.sofka.jpa.dto.afiliacion;
+package co.com.sofka.jpa.afiliacion;
 
-import co.com.sofka.jpa.dto.asesor.AsesorDto;
-import co.com.sofka.jpa.dto.beneficiario.BeneficiarioDto;
-import co.com.sofka.jpa.dto.causante.CausanteDto;
-import co.com.sofka.jpa.dto.renta.RentaDto;
+import co.com.sofka.jpa.asesor.AsesorDto;
+import co.com.sofka.jpa.beneficiario.BeneficiarioDto;
+import co.com.sofka.jpa.causante.CausanteDto;
+import co.com.sofka.jpa.renta.RentaDto;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,31 +22,28 @@ import java.util.Date;
 public class AfiliacionDto {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name = "id", nullable = false)
         private Integer id;
 
-        @NotNull
         @Column(name = "fechaAfiliacion")
         private Date fechaAfiliacion;
 
-        @NotNull
-        @Column(name = "fondoPensional")
+        @Column(name = "fondo")
         private String fondo;
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "id", referencedColumnName = "id")
+        @JoinColumn(name = "idAsesor", referencedColumnName = "id")
         private AsesorDto asesorDto;
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "id", referencedColumnName = "id")
+        @JoinColumn(name = "idCausante", referencedColumnName = "id")
         private CausanteDto causanteDto;
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "id", referencedColumnName = "id")
+        @JoinColumn(name = "idBeneficiario", referencedColumnName = "id")
         private BeneficiarioDto beneficiarioDto;
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "id", referencedColumnName = "id")
+        @JoinColumn(name = "idRenta", referencedColumnName = "id")
         private RentaDto rentaDto;
 
         @Column(name = "id_sbdcpc")

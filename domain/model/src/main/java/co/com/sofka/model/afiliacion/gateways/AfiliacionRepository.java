@@ -1,7 +1,6 @@
 package co.com.sofka.model.afiliacion.gateways;
 
 import co.com.sofka.model.afiliacion.Afiliacion;
-import co.com.sofka.model.beneficiario.Beneficiario;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

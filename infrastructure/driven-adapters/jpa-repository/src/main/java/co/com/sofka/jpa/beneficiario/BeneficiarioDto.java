@@ -1,7 +1,7 @@
-package co.com.sofka.jpa.dto.beneficiario;
+package co.com.sofka.jpa.beneficiario;
 
-import co.com.sofka.jpa.dto.afiliacion.AfiliacionDto;
-import co.com.sofka.jpa.dto.persona.PersonaDto;
+import co.com.sofka.jpa.afiliacion.AfiliacionDto;
+import co.com.sofka.jpa.persona.PersonaDto;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,24 +23,20 @@ public class BeneficiarioDto {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @NotNull
     @Column(name = "nombre")
     private String nombre;
 
-    @NotNull
     @Column(name = "estudiante")
     private Boolean estudiante;
 
-    @NotNull
     @Column(name = "dependiente")
     private Boolean dependiente;
 
-    @NotNull
     @Column(name = "tipoBeneficiario")
     private String tipoBeneficiario;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "id")
+    @JoinColumn(name = "idPersona", referencedColumnName = "id")
     private PersonaDto personaDto;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "beneficiarioDto")
