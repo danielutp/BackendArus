@@ -1,6 +1,7 @@
 package co.com.sofka.jpa.persona;
 
 import co.com.sofka.jpa.helper.AdapterOperations;
+import co.com.sofka.jpa.persona.personaMappers.PersonaMappers;
 import co.com.sofka.model.persona.Persona;
 import co.com.sofka.model.persona.gateways.PersonaRepository;
 import org.reactivecommons.utils.ObjectMapper;
@@ -19,26 +20,43 @@ public class PersonaRepositoryAdapter extends AdapterOperations<Persona, Persona
 
     @Override
     public Mono<Persona> crearPersona(Persona persona) {
-        return null;
+        return Mono.just(save(persona));
     }
 
     @Override
     public Mono<Persona> actualizarPersona(Integer id, Persona persona) {
-        return null;
+        if (repository.findById(id).isPresent()) {
+            PersonaDto personaDto = PersonaMappers.personaConvertirAPersonaDTO(persona);
+            personaDto.setId(id);
+            return Mono.just(PersonaMappers.personaDTOConvertirAPersona(repository.save(personaDto)));
+        }else {
+            return Mono.error(new IllegalArgumentException("No se encuentra la persona con el id :" + id));
+        }
     }
 
     @Override
     public Mono<Void> borrarPersona(Integer id) {
-        return null;
+        if (repository.findById(id).isPresent()) {
+            repository.deleteById(id);
+            return Mono.empty();
+        }else {
+            return Mono.error(new IllegalArgumentException("No se encuentra la persona con el id :" + id));
+        }
     }
 
     @Override
     public Mono<Persona> buscarPersona(Integer id) {
-        return null;
+        if (repository.findById(id).isPresent()) {
+            return Mono.just(PersonaMappers.personaDTOConvertirAPersona(repository.findById(id).get()));
+        }else {
+            return Mono.error(new IllegalArgumentException("No se encuentra la persona con el id :" + id));
+        }
     }
 
     @Override
     public Flux<Persona> listaPersona() {
-        return null;
+        var Lista = repository.findAll();
+        return Flux.fromIterable(Lista).map(PersonaMappers::personaDTOConvertirAPersona);
+
     }
 }

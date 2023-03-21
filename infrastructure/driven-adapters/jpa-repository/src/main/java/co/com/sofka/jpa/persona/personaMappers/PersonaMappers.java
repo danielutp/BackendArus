@@ -10,7 +10,7 @@ public class PersonaMappers {
         throw new IllegalStateException("Utility class");
     }
 
-    public static Persona personaDTOToAPersona(PersonaDto personaDTO) {
+    public static Persona personaDTOConvertirAPersona(PersonaDto personaDTO) {
         return Persona.builder()
                 .id(personaDTO.getId())
                 .identificacion(personaDTO.getIdentificacion())
@@ -23,7 +23,7 @@ public class PersonaMappers {
     }
 
 
-    public static PersonaDto personaToPersonaDTO(Persona persona) {
+    public static PersonaDto personaConvertirAPersonaDTO(Persona persona) {
         PersonaDto personaDTO = new PersonaDto();
         personaDTO.setId(persona.getId());
         personaDTO.setIdentificacion(persona.getIdentificacion());

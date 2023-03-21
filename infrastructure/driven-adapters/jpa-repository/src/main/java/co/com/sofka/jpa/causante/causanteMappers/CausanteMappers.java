@@ -6,7 +6,7 @@ import co.com.sofka.model.causante.Causante;
 
 import static co.com.sofka.jpa.afiliacion.afiliacionMappers.AfiliacionMappers.afiliacionListAfiliacionListDto;
 import static co.com.sofka.jpa.afiliacion.afiliacionMappers.AfiliacionMappers.afiliacionListDtoAfiliacionList;
-import static co.com.sofka.jpa.persona.personaMappers.PersonaMappers.personaDTOToAPersona;
+import static co.com.sofka.jpa.persona.personaMappers.PersonaMappers.personaDTOConvertirAPersona;
 
 public class CausanteMappers {
 
@@ -14,19 +14,19 @@ public class CausanteMappers {
         throw new IllegalStateException("Utility class");
     }
 
-    public static Causante causanteDTOToACausante(CausanteDto causanteDTO) {
+    public static Causante causanteDTOConvertirAACausante(CausanteDto causanteDTO) {
         return Causante.builder()
                 .id(causanteDTO.getId())
-                .persona(personaDTOToAPersona(causanteDTO.getPersonaDto()))
+                .persona(personaDTOConvertirAPersona(causanteDTO.getPersonaDto()))
                 .afiliacionList(afiliacionListDtoAfiliacionList(causanteDTO.getAfiliacionDtoList()))
                 .build();
     }
 
 
-    public static CausanteDto causanteToCausanteDTO(Causante causante) {
+    public static CausanteDto causanteConvertirACausanteDTO(Causante causante) {
         CausanteDto causanteDTO = new CausanteDto();
         causanteDTO.setId(causante.getId());
-        causanteDTO.setPersonaDto(PersonaMappers.personaToPersonaDTO(causante.getPersona()));
+        causanteDTO.setPersonaDto(PersonaMappers.personaConvertirAPersonaDTO(causante.getPersona()));
         causanteDTO.setAfiliacionDtoList(afiliacionListAfiliacionListDto(causante.getAfiliacionList()));
         return causanteDTO;
     }

@@ -13,7 +13,7 @@ public class RentaMappers {
     }
 
 
-    public static Renta rentaDTOToARenta(RentaDto rentaDTO) {
+    public static Renta rentaDTOConvertirARenta(RentaDto rentaDTO) {
         return Renta.builder()
                 .id(rentaDTO.getId())
                 .fechaSolicitud(rentaDTO.getFechaSolicitud())
@@ -24,7 +24,7 @@ public class RentaMappers {
     }
 
 
-    public static RentaDto rentaToRentaDTO(Renta renta) {
+    public static RentaDto rentaConvertirARentaDTO(Renta renta) {
         RentaDto rentaDTO = new RentaDto();
         rentaDTO.setId(renta.getId());
         rentaDTO.setFechaSolicitud(renta.getFechaSolicitud());

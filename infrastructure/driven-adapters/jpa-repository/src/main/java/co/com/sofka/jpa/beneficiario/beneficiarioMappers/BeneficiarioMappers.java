@@ -5,8 +5,8 @@ import co.com.sofka.model.beneficiario.Beneficiario;
 
 import static co.com.sofka.jpa.afiliacion.afiliacionMappers.AfiliacionMappers.afiliacionListAfiliacionListDto;
 import static co.com.sofka.jpa.afiliacion.afiliacionMappers.AfiliacionMappers.afiliacionListDtoAfiliacionList;
-import static co.com.sofka.jpa.persona.personaMappers.PersonaMappers.personaDTOToAPersona;
-import static co.com.sofka.jpa.persona.personaMappers.PersonaMappers.personaToPersonaDTO;
+import static co.com.sofka.jpa.persona.personaMappers.PersonaMappers.personaDTOConvertirAPersona;
+import static co.com.sofka.jpa.persona.personaMappers.PersonaMappers.personaConvertirAPersonaDTO;
 
 public class BeneficiarioMappers {
 
@@ -14,10 +14,10 @@ public class BeneficiarioMappers {
         throw new IllegalStateException("Utility class");
     }
 
-    public static Beneficiario beneficiarioDTOToABeneficiario(BeneficiarioDto beneficiarioDTO) {
+    public static Beneficiario beneficiarioDTOConvertirAABeneficiario(BeneficiarioDto beneficiarioDTO) {
         return Beneficiario.builder()
                 .id(beneficiarioDTO.getId())
-                .persona(personaDTOToAPersona(beneficiarioDTO.getPersonaDto()))
+                .persona(personaDTOConvertirAPersona(beneficiarioDTO.getPersonaDto()))
                 .estudiante(beneficiarioDTO.getEstudiante())
                 .dependiente(beneficiarioDTO.getDependiente())
                 .tipoBeneficiario(beneficiarioDTO.getTipoBeneficiario())
@@ -25,13 +25,13 @@ public class BeneficiarioMappers {
                 .build();
     }
 
-    public static BeneficiarioDto beneficiarioToBeneficiarioDTO(Beneficiario beneficiario) {
+    public static BeneficiarioDto beneficiarioConvertirABeneficiarioDTO(Beneficiario beneficiario) {
         BeneficiarioDto beneficiarioDTO = new BeneficiarioDto();
         beneficiarioDTO.setId(beneficiario.getId());
         beneficiarioDTO.setEstudiante(beneficiario.getEstudiante());
         beneficiarioDTO.setDependiente(beneficiario.getDependiente());
         beneficiarioDTO.setTipoBeneficiario(beneficiario.getTipoBeneficiario());
-        beneficiarioDTO.setPersonaDto(personaToPersonaDTO(beneficiario.getPersona()));
+        beneficiarioDTO.setPersonaDto(personaConvertirAPersonaDTO(beneficiario.getPersona()));
         beneficiarioDTO.setAfiliacionDtoList(afiliacionListAfiliacionListDto(beneficiario.getAfiliacionList()));
         return beneficiarioDTO;
     }

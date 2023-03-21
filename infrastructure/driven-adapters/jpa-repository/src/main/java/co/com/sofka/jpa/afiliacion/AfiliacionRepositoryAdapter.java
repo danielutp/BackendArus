@@ -1,5 +1,6 @@
 package co.com.sofka.jpa.afiliacion;
 
+import co.com.sofka.jpa.afiliacion.afiliacionMappers.AfiliacionMappers;
 import co.com.sofka.jpa.helper.AdapterOperations;
 import co.com.sofka.model.afiliacion.Afiliacion;
 import co.com.sofka.model.afiliacion.gateways.AfiliacionRepository;
@@ -19,27 +20,43 @@ public class AfiliacionRepositoryAdapter extends AdapterOperations <Afiliacion, 
 
     @Override
     public Mono<Afiliacion> crearAfiliacion(Afiliacion afiliacion) {
-        return null;
+        return Mono.just(save(afiliacion));
     }
 
     @Override
     public Mono<Afiliacion> actualizarAfiliacion(Integer id, Afiliacion afiliacion) {
-        return null;
+        if (repository.findById(id).isPresent()) {
+            AfiliacionDto afiliacionDto = AfiliacionMappers.afiliacionConvertirAAfiliacionDTO(afiliacion);
+            afiliacionDto.setId(id);
+            return Mono.just(AfiliacionMappers.afiliacionDtoConvertirAAfiliacion(repository.save(afiliacionDto)));
+        }else {
+            return Mono.error(new IllegalArgumentException("No se encuentra la afiliacion con el id :" + id));
+        }
     }
 
     @Override
     public Mono<Void> borrarAfiliacion(Integer id) {
-        return null;
+        if (repository.findById(id).isPresent()) {
+            repository.deleteById(id);
+            return Mono.empty();
+        }else {
+            return Mono.error(new IllegalArgumentException("No se encuentra la afiliacion con el id :" + id));
+        }
     }
 
     @Override
     public Mono<Afiliacion> buscarAfiliacion(Integer id) {
-        return null;
+        if (repository.findById(id).isPresent()) {
+            return Mono.just(AfiliacionMappers.afiliacionDtoConvertirAAfiliacion(repository.findById(id).get()));
+        }else {
+            return Mono.error(new IllegalArgumentException("No se encuentra la afiliacion con el id :" + id));
+        }
     }
 
     @Override
     public Flux<Afiliacion> listaAfiliacion() {
-        return null;
+        var Lista = repository.findAll();
+        return Flux.fromIterable(Lista).map(AfiliacionMappers::afiliacionDtoConvertirAAfiliacion);
     }
 }
 

@@ -11,7 +11,6 @@ import java.util.Date;
 @Data
 @Builder(toBuilder = true)
 public class Persona {
-
     private Integer id;
     private Integer identificacion;
     private String tipoIdentificacion;
