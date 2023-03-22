@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(toBuilder = true)
-@Table(name = "causante")
+@Table(name = "renta")
 public class RentaDto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

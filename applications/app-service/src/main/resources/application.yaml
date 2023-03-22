@@ -16,7 +16,7 @@ spring:
   main:
     allow-bean-definition-overriding: true
   datasource:
-    url: "jdbc:mysql://127.0.0.1:3306/prueba"
+    url: "jdbc:mysql://127.0.0.1:3306/arus"
     username: "root"
     password: "root"
     driverClassName: "com.mysql.cj.jdbc.Driver"

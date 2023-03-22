@@ -3,6 +3,8 @@ package co.com.sofka.jpa.asesor;
 import co.com.sofka.jpa.afiliacion.AfiliacionDto;
 import co.com.sofka.jpa.afiliacion.afiliacionMappers.AfiliacionMappers;
 import co.com.sofka.jpa.asesor.asesorMappers.AsesorMappers;
+import co.com.sofka.jpa.causante.CausanteDto;
+import co.com.sofka.jpa.causante.causanteMappers.CausanteMappers;
 import co.com.sofka.jpa.helper.AdapterOperations;
 import co.com.sofka.jpa.renta.RentaDto;
 import co.com.sofka.model.asesor.Asesor;
@@ -23,7 +25,8 @@ public class AsesorRepositoryAdapter extends AdapterOperations <Asesor, AsesorDt
 
     @Override
     public Mono<Asesor> crearAsesor(Asesor asesor) {
-        return Mono.just(save(asesor));
+        AsesorDto asesorDto = AsesorMappers.asesorConvertirAAsesorDTO(asesor);
+        return Mono.just(AsesorMappers.asesorDTOConvertirAAsesor(repository.save(asesorDto)));
     }
 
     @Override
@@ -58,8 +61,10 @@ public class AsesorRepositoryAdapter extends AdapterOperations <Asesor, AsesorDt
 
     @Override
     public Flux<Asesor> listaAsesor() {
-        var Lista = repository.findAll();
-        return Flux.fromIterable(Lista).map(AsesorMappers::asesorDTOConvertirAAsesor);
+        Flux<AsesorDto> asesores = Flux.fromIterable(repository.findAll());
+        return asesores.map(
+                AsesorMappers::asesorDTOConvertirAAsesor
+        );
     }
 }
 

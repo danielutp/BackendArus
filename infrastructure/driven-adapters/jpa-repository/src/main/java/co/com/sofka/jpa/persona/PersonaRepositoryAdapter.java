@@ -57,6 +57,5 @@ public class PersonaRepositoryAdapter extends AdapterOperations<Persona, Persona
     public Flux<Persona> listaPersona() {
         var Lista = repository.findAll();
         return Flux.fromIterable(Lista).map(PersonaMappers::personaDTOConvertirAPersona);
-
     }
 }
