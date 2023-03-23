@@ -22,8 +22,7 @@ public class CausanteRepositoryAdapter extends AdapterOperations<Causante, Causa
 
     @Override
     public Mono<Causante> crearCausante(Causante causante) {
-        CausanteDto causanteDto = CausanteMappers.causanteConvertirACausanteDTO(causante);
-        return Mono.just(save(CausanteMappers.causanteDTOConvertirAACausante(causanteDto)));
+        return Mono.just(CausanteMappers.causanteDTOConvertirAACausante(repository.save(CausanteMappers.causanteConvertirACausanteDTO(causante))));
     }
 
     @Override

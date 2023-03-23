@@ -1,7 +1,5 @@
 package co.com.sofka.jpa.renta;
 
-import co.com.sofka.jpa.afiliacion.AfiliacionDto;
-import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Data
 @Entity
@@ -20,7 +17,6 @@ import java.util.List;
 public class RentaDto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
     private Integer id;
 
     @Column(name = "fechaSolicitud")
@@ -32,6 +28,4 @@ public class RentaDto {
     @Column(name = "mesesCotizando")
     private Integer mesesCotizando;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "rentaDto")
-    private List<AfiliacionDto> afiliacionDtoList;
 }

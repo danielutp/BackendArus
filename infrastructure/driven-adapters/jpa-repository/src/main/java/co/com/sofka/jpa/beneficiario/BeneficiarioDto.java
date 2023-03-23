@@ -20,7 +20,6 @@ import java.util.List;
 public class BeneficiarioDto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
     private Integer id;
 
     @Column(name = "nombre")
@@ -35,11 +34,8 @@ public class BeneficiarioDto {
     @Column(name = "tipoBeneficiario")
     private String tipoBeneficiario;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idPersona", referencedColumnName = "id")
     private PersonaDto personaDto;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "beneficiarioDto")
-    private List<AfiliacionDto> afiliacionDtoList;
 
 }

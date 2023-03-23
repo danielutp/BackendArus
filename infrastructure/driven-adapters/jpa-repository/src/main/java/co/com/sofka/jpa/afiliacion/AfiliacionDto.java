@@ -30,19 +30,19 @@ public class AfiliacionDto {
         @Column(name = "fondo")
         private String fondo;
 
-        @ManyToOne(fetch = FetchType.LAZY)
+        @OneToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "idAsesor", referencedColumnName = "id")
         private AsesorDto asesorDto;
 
-        @ManyToOne(fetch = FetchType.LAZY)
+        @OneToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "idCausante", referencedColumnName = "id")
         private CausanteDto causanteDto;
 
-        @ManyToOne(fetch = FetchType.LAZY)
+        @OneToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "idBeneficiario", referencedColumnName = "id")
         private BeneficiarioDto beneficiarioDto;
 
-        @ManyToOne(fetch = FetchType.LAZY)
+        @OneToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "idRenta", referencedColumnName = "id")
         private RentaDto rentaDto;
 

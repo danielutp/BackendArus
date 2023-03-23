@@ -3,9 +3,6 @@ package co.com.sofka.jpa.afiliacion.afiliacionMappers;
 import co.com.sofka.jpa.afiliacion.AfiliacionDto;
 import co.com.sofka.model.afiliacion.Afiliacion;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import static co.com.sofka.jpa.asesor.asesorMappers.AsesorMappers.asesorDTOConvertirAAsesor;
 import static co.com.sofka.jpa.asesor.asesorMappers.AsesorMappers.asesorConvertirAAsesorDTO;
 import static co.com.sofka.jpa.beneficiario.beneficiarioMappers.BeneficiarioMappers.beneficiarioDTOConvertirAABeneficiario;
@@ -44,20 +41,5 @@ public class AfiliacionMappers {
                 .idSbdcpc(afiliacionDTO.getIdBaseDatosCentralPensionesColombia())
                 .build();
     }
-
-     public static List<AfiliacionDto> afiliacionListAfiliacionListDto(List<Afiliacion> afiliacion) {
-         return afiliacion.stream()
-                 .map(AfiliacionMappers::afiliacionConvertirAAfiliacionDTO)
-                 .collect(Collectors.toList());
-     }
-
-
-        public static List<Afiliacion> afiliacionListDtoAfiliacionList(List<AfiliacionDto> afiliacionDTO) {
-            return afiliacionDTO.stream()
-                    .map(AfiliacionMappers::afiliacionDtoConvertirAAfiliacion)
-                    .collect(Collectors.toList());
-        }
-
-
 
 }

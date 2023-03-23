@@ -1,7 +1,5 @@
 package co.com.sofka.jpa.beneficiario;
 
-import co.com.sofka.jpa.asesor.AsesorDto;
-import co.com.sofka.jpa.asesor.asesorMappers.AsesorMappers;
 import co.com.sofka.jpa.beneficiario.beneficiarioMappers.BeneficiarioMappers;
 import co.com.sofka.jpa.helper.AdapterOperations;
 import co.com.sofka.model.beneficiario.Beneficiario;

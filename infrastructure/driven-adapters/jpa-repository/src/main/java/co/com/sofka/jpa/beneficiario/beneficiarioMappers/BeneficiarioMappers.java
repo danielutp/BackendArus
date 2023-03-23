@@ -3,8 +3,6 @@ package co.com.sofka.jpa.beneficiario.beneficiarioMappers;
 import co.com.sofka.jpa.beneficiario.BeneficiarioDto;
 import co.com.sofka.model.beneficiario.Beneficiario;
 
-import static co.com.sofka.jpa.afiliacion.afiliacionMappers.AfiliacionMappers.afiliacionListAfiliacionListDto;
-import static co.com.sofka.jpa.afiliacion.afiliacionMappers.AfiliacionMappers.afiliacionListDtoAfiliacionList;
 import static co.com.sofka.jpa.persona.personaMappers.PersonaMappers.personaDTOConvertirAPersona;
 import static co.com.sofka.jpa.persona.personaMappers.PersonaMappers.personaConvertirAPersonaDTO;
 
@@ -21,7 +19,6 @@ public class BeneficiarioMappers {
                 .estudiante(beneficiarioDTO.getEstudiante())
                 .dependiente(beneficiarioDTO.getDependiente())
                 .tipoBeneficiario(beneficiarioDTO.getTipoBeneficiario())
-                .afiliacionList(afiliacionListDtoAfiliacionList(beneficiarioDTO.getAfiliacionDtoList()))
                 .build();
     }
 
@@ -32,7 +29,6 @@ public class BeneficiarioMappers {
         beneficiarioDTO.setDependiente(beneficiario.getDependiente());
         beneficiarioDTO.setTipoBeneficiario(beneficiario.getTipoBeneficiario());
         beneficiarioDTO.setPersonaDto(personaConvertirAPersonaDTO(beneficiario.getPersona()));
-        beneficiarioDTO.setAfiliacionDtoList(afiliacionListAfiliacionListDto(beneficiario.getAfiliacionList()));
         return beneficiarioDTO;
     }
 }

@@ -1,6 +1,5 @@
 package co.com.sofka.jpa.persona.personaMappers;
 
-
 import co.com.sofka.jpa.persona.PersonaDto;
 import co.com.sofka.model.persona.Persona;
 
@@ -22,7 +21,6 @@ public class PersonaMappers {
                 .build();
     }
 
-
     public static PersonaDto personaConvertirAPersonaDTO(Persona persona) {
         PersonaDto personaDTO = new PersonaDto();
         personaDTO.setId(persona.getId());
@@ -34,6 +32,5 @@ public class PersonaMappers {
         personaDTO.setGenero(persona.getGenero());
         return personaDTO;
     }
-
 
 }

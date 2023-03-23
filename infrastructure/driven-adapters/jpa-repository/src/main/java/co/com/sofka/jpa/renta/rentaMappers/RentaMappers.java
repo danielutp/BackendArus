@@ -1,11 +1,7 @@
 package co.com.sofka.jpa.renta.rentaMappers;
 
-
 import co.com.sofka.jpa.renta.RentaDto;
 import co.com.sofka.model.renta.Renta;
-
-import static co.com.sofka.jpa.afiliacion.afiliacionMappers.AfiliacionMappers.afiliacionListAfiliacionListDto;
-import static co.com.sofka.jpa.afiliacion.afiliacionMappers.AfiliacionMappers.afiliacionListDtoAfiliacionList;
 
 public class RentaMappers {
     private RentaMappers() {
@@ -19,7 +15,6 @@ public class RentaMappers {
                 .fechaSolicitud(rentaDTO.getFechaSolicitud())
                 .mesesCotizando(rentaDTO.getMesesCotizando())
                 .salario(rentaDTO.getSalario())
-                .afiliacionList(afiliacionListDtoAfiliacionList(rentaDTO.getAfiliacionDtoList()))
                 .build();
     }
 
@@ -30,7 +25,6 @@ public class RentaMappers {
         rentaDTO.setFechaSolicitud(renta.getFechaSolicitud());
         rentaDTO.setMesesCotizando(renta.getMesesCotizando());
         rentaDTO.setSalario(renta.getSalario());
-        rentaDTO.setAfiliacionDtoList(afiliacionListAfiliacionListDto(renta.getAfiliacionList()));
         return rentaDTO;
     }
 

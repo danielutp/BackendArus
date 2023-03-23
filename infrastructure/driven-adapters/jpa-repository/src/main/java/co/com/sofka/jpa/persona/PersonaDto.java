@@ -3,7 +3,6 @@ package co.com.sofka.jpa.persona;
 import co.com.sofka.jpa.asesor.AsesorDto;
 import co.com.sofka.jpa.beneficiario.BeneficiarioDto;
 import co.com.sofka.jpa.causante.CausanteDto;
-import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,7 +20,6 @@ import java.util.Date;
 public class PersonaDto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
     private Integer id;
 
     @Column(name = "identificacion")
@@ -41,14 +39,5 @@ public class PersonaDto {
 
     @Column(name = "genero")
     private String genero;
-
-    @OneToOne(mappedBy = "personaDto")
-    private AsesorDto asesorDto;
-
-    @OneToOne(mappedBy = "personaDto")
-    private BeneficiarioDto beneficiarioDto;
-
-    @OneToOne(mappedBy = "personaDto")
-    private CausanteDto causanteDto;
 
 }
