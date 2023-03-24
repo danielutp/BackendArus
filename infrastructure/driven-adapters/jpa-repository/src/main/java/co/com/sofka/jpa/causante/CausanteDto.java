@@ -19,8 +19,6 @@ public class CausanteDto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String nick;
-
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idPersona", referencedColumnName = "id")
     private PersonaDto personaDto;

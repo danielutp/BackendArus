@@ -16,4 +16,6 @@ public interface CausanteRepository {
 
     Flux<Causante> listaCausante();
 
+    Mono<Boolean> validarPensionado(Integer identificacion);
+
 }

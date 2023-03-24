@@ -20,7 +20,12 @@ public class PersonaRepositoryAdapter extends AdapterOperations<Persona, Persona
 
     @Override
     public Mono<Persona> crearPersona(Persona persona) {
-        return Mono.just(save(persona));
+// VALIDACION DE NO REPETIR DOCUMENTO
+//                    .flatMap(e-> Mono.error(new IllegalArgumentException("Error")))
+//                      .switchIfEmpty(Mono.just(PersonaMappers.personaDTOConvertirAPersona
+//                           (repository.save(PersonaMappers.personaConvertirAPersonaDTO(persona)))))
+//                   .thenReturn(persona);
+        return null;
     }
 
     @Override

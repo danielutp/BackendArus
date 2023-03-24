@@ -6,23 +6,41 @@ import co.com.sofka.jpa.persona.PersonaDto;
 import co.com.sofka.jpa.persona.personaMappers.PersonaMappers;
 import co.com.sofka.model.causante.Causante;
 import co.com.sofka.model.causante.gateways.CausanteRepository;
+import co.com.sofka.model.persona.gateways.PersonaRepository;
 import org.reactivecommons.utils.ObjectMapper;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.client.RestTemplate;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.Objects;
 
 @Repository
 public class CausanteRepositoryAdapter extends AdapterOperations<Causante, CausanteDto, Integer, CausanteDtoRepository>
         implements CausanteRepository {
 
+    private final RestTemplate restTemplate;
+    private  final PersonaRepository personaRepository;
 
-    public CausanteRepositoryAdapter(CausanteDtoRepository repository, ObjectMapper mapper) {
+
+    public CausanteRepositoryAdapter(CausanteDtoRepository repository, ObjectMapper mapper, RestTemplate restTemplate, PersonaRepository personaRepository) {
         super(repository, mapper, d -> mapper.mapBuilder(d, Causante.CausanteBuilder.class).build());
+        this.restTemplate = restTemplate;
+        this.personaRepository = personaRepository;
     }
 
     @Override
     public Mono<Causante> crearCausante(Causante causante) {
-        return Mono.just(CausanteMappers.causanteDTOConvertirAACausante(repository.save(CausanteMappers.causanteConvertirACausanteDTO(causante))));
+        return personaRepository.buscarPersona(causante.getPersona().getId())
+                .map(PersonaMappers::personaConvertirAPersonaDTO)
+                .flatMap(personaDto-> validatePersonaPensionado(causante, personaDto));
+
+      }
+
+    private Mono<Causante> validatePersonaPensionado(Causante causante, PersonaDto personaDto) {
+        return Objects.isNull(validarPensionado(personaDto.getIdentificacion()))
+                ? Mono.error(new NullPointerException("Malo"))
+                : Mono.just(CausanteMappers.causanteDTOConvertirAACausante(repository.save(CausanteMappers.causanteConvertirACausanteDTO(causante))));
     }
 
     @Override
@@ -60,4 +78,11 @@ public class CausanteRepositoryAdapter extends AdapterOperations<Causante, Causa
         var Lista = repository.findAll();
         return Flux.fromIterable(Lista).map(CausanteMappers::causanteDTOConvertirAACausante);
     }
+
+    @Override
+    public Mono<Boolean> validarPensionado(Integer identificacion) {
+        var response = restTemplate.getForObject("http://localhost:8080/api/verificarPensionado/"+identificacion, Boolean.class);
+        return Mono.just(response);
+    }
+
 }

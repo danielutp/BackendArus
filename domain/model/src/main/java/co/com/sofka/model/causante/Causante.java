@@ -11,6 +11,5 @@ import lombok.NoArgsConstructor;
 @Builder(toBuilder = true)
 public class Causante {
     private Integer id;
-    private String nick;
     private Persona persona;
 }

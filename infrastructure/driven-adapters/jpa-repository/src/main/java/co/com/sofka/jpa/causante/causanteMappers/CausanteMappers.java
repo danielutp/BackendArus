@@ -15,7 +15,6 @@ public class CausanteMappers {
     public static Causante causanteDTOConvertirAACausante(CausanteDto causanteDTO) {
         return Causante.builder()
                 .id(causanteDTO.getId())
-                .nick(causanteDTO.getNick())
                 .persona(personaDTOConvertirAPersona(causanteDTO.getPersonaDto()))
                 .build();
     }
@@ -23,7 +22,6 @@ public class CausanteMappers {
     public static CausanteDto causanteConvertirACausanteDTO(Causante causante) {
         CausanteDto causanteDTO = new CausanteDto();
         causanteDTO.setId(causante.getId());
-        causanteDTO.setNick(causante.getNick());
         causanteDTO.setPersonaDto(PersonaMappers.personaConvertirAPersonaDTO(causante.getPersona()));
         return causanteDTO;
     }

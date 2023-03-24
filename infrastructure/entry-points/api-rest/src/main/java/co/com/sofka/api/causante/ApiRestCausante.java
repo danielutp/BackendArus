@@ -3,11 +3,17 @@ import co.com.sofka.model.causante.Causante;
 import co.com.sofka.model.causante.gateways.CausanteRepository;
 import co.com.sofka.usecase.causante.CausanteUseCase;
 import lombok.AllArgsConstructor;
+import org.springframework.boot.autoconfigure.web.WebProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+@CrossOrigin(
+        origins = {"http://localhost:4200"},
+        methods = {RequestMethod.GET, RequestMethod.PATCH, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE}
+)
 @RestController
 @RequestMapping(value = "/api", produces = MediaType.APPLICATION_JSON_VALUE)
 @AllArgsConstructor
