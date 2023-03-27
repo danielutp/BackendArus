@@ -14,5 +14,6 @@ public interface PersonaRepository {
     Mono<Persona> buscarPersona(Integer id);
 
     Flux<Persona> listaPersona();
+
 }
 

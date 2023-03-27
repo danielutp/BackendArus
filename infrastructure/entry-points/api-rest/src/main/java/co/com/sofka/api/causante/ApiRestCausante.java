@@ -1,10 +1,10 @@
 package co.com.sofka.api.causante;
 import co.com.sofka.model.causante.Causante;
-import co.com.sofka.model.causante.gateways.CausanteRepository;
+import co.com.sofka.model.pensionadoemitido.PensionadoEmitido;
+import co.com.sofka.model.persona.gateways.PersonaRepository;
 import co.com.sofka.usecase.causante.CausanteUseCase;
+import co.com.sofka.usecase.emitirpensionado.EmitirPensionadoUseCase;
 import lombok.AllArgsConstructor;
-import org.springframework.boot.autoconfigure.web.WebProperties;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
@@ -20,8 +20,16 @@ import reactor.core.publisher.Mono;
 public class ApiRestCausante {
     private final CausanteUseCase causanteUseCase;
 
+    private final PersonaRepository personaRepository;
+
+    private final EmitirPensionadoUseCase emitirPensionadoUseCase;
+
     @PostMapping(path = "/crearCausante")
     public Mono<Causante> crearCausante(@RequestBody Causante causante){
+        personaRepository.buscarPersona(causante.getPersona().getId()).map(ele->{
+           return emitirPensionadoUseCase.emitirPorComando(PensionadoEmitido.builder().identificacion(ele.getIdentificacion()).build()).subscribe();
+        }).subscribe();
+
         return causanteUseCase.crearCausante(causante);
     }
 
@@ -40,6 +48,11 @@ public class ApiRestCausante {
     @GetMapping(path = "/listaCausante")
     public Flux<Causante> listaCausante() {
         return causanteUseCase.listaCausante();
+    }
+
+    @GetMapping("/emitirPensionado/{id}")
+        public Mono<PensionadoEmitido> buscarCausantePorComando(@PathVariable PensionadoEmitido pensionadoEmitido){
+        return emitirPensionadoUseCase.emitirPorComando(pensionadoEmitido);
     }
 
 }

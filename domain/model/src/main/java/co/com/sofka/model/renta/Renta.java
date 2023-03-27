@@ -16,4 +16,6 @@ public class Renta {
     private Double salario;
     private Integer mesesCotizando;
 
+    public <E> Renta(int i, Date date, double v, int i1) {
+    }
 }

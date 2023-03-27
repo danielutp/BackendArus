@@ -13,19 +13,18 @@ import reactor.core.publisher.Mono;
 public class PersonaRepositoryAdapter extends AdapterOperations<Persona, PersonaDto, Integer, PersonaDtoRepository>
         implements PersonaRepository {
 
-
         public PersonaRepositoryAdapter(PersonaDtoRepository repository, ObjectMapper mapper) {
             super(repository, mapper, d -> mapper.mapBuilder(d, Persona.PersonaBuilder.class).build());
         }
 
     @Override
     public Mono<Persona> crearPersona(Persona persona) {
-// VALIDACION DE NO REPETIR DOCUMENTO
-//                    .flatMap(e-> Mono.error(new IllegalArgumentException("Error")))
-//                      .switchIfEmpty(Mono.just(PersonaMappers.personaDTOConvertirAPersona
-//                           (repository.save(PersonaMappers.personaConvertirAPersonaDTO(persona)))))
-//                   .thenReturn(persona);
-        return null;
+        PersonaDto personaExistente = repository.findByIdentificacion(persona.getIdentificacion());
+        if (personaExistente != null) {
+            return Mono.error(new IllegalArgumentException("DUPLICADO"));
+        } else {
+            return Mono.just(PersonaMappers.personaDTOConvertirAPersona(repository.save(PersonaMappers.personaConvertirAPersonaDTO(persona))));
+        }
     }
 
     @Override

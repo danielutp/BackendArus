@@ -6,6 +6,8 @@ import co.com.sofka.jpa.persona.PersonaDto;
 import co.com.sofka.jpa.persona.personaMappers.PersonaMappers;
 import co.com.sofka.model.causante.Causante;
 import co.com.sofka.model.causante.gateways.CausanteRepository;
+import co.com.sofka.model.pensionadoemitido.PensionadoEmitido;
+import co.com.sofka.model.pensionadoemitido.gateways.PensionadoEmitidoRepository;
 import co.com.sofka.model.persona.gateways.PersonaRepository;
 import org.reactivecommons.utils.ObjectMapper;
 import org.springframework.stereotype.Repository;
@@ -22,11 +24,14 @@ public class CausanteRepositoryAdapter extends AdapterOperations<Causante, Causa
     private final RestTemplate restTemplate;
     private  final PersonaRepository personaRepository;
 
+    private final PensionadoEmitidoRepository pensionadoEmitidoRepository;
 
-    public CausanteRepositoryAdapter(CausanteDtoRepository repository, ObjectMapper mapper, RestTemplate restTemplate, PersonaRepository personaRepository) {
+
+    public CausanteRepositoryAdapter(CausanteDtoRepository repository, ObjectMapper mapper, RestTemplate restTemplate, PersonaRepository personaRepository, PensionadoEmitidoRepository pensionadoEmitidoRepository) {
         super(repository, mapper, d -> mapper.mapBuilder(d, Causante.CausanteBuilder.class).build());
         this.restTemplate = restTemplate;
         this.personaRepository = personaRepository;
+        this.pensionadoEmitidoRepository = pensionadoEmitidoRepository;
     }
 
     @Override

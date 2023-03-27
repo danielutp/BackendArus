@@ -2,6 +2,7 @@ package co.com.sofka.usecase.causante;
 
 import co.com.sofka.model.causante.Causante;
 import co.com.sofka.model.causante.gateways.CausanteRepository;
+import co.com.sofka.usecase.emitirpensionado.EmitirPensionadoUseCase;
 import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -10,6 +11,8 @@ import reactor.core.publisher.Mono;
 public class CausanteUseCase {
 
     private final CausanteRepository causanteRepository;
+
+    private final EmitirPensionadoUseCase causantePublicador;
 
     public Mono<Causante> crearCausante(Causante causante) {
         return causanteRepository.crearCausante(causante);
@@ -30,5 +33,6 @@ public class CausanteUseCase {
     public Flux<Causante> listaCausante() {
         return causanteRepository.listaCausante();
     }
+
 
 }
