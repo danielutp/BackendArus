@@ -1,8 +1,6 @@
 package co.com.sofka.api.persona;
 import co.com.sofka.model.persona.Persona;
-import co.com.sofka.model.renta.Renta;
 import co.com.sofka.usecase.persona.PersonaUseCase;
-import co.com.sofka.usecase.renta.RentaUseCase;
 import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;

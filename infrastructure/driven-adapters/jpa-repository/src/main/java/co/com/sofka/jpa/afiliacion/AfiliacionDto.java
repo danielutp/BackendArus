@@ -4,7 +4,6 @@ import co.com.sofka.jpa.asesor.AsesorDto;
 import co.com.sofka.jpa.beneficiario.BeneficiarioDto;
 import co.com.sofka.jpa.causante.CausanteDto;
 import co.com.sofka.jpa.renta.RentaDto;
-import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -31,19 +30,19 @@ public class AfiliacionDto {
         private String fondo;
 
         @OneToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "idAsesor", referencedColumnName = "id")
+        @JoinColumn(name = "id_asesor", referencedColumnName = "id")
         private AsesorDto asesorDto;
 
         @OneToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "idCausante", referencedColumnName = "id")
+        @JoinColumn(name = "id_causante", referencedColumnName = "id")
         private CausanteDto causanteDto;
 
         @OneToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "idBeneficiario", referencedColumnName = "id")
+        @JoinColumn(name = "id_beneficiario", referencedColumnName = "id")
         private BeneficiarioDto beneficiarioDto;
 
         @OneToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "idRenta", referencedColumnName = "id")
+        @JoinColumn(name = "id_renta", referencedColumnName = "id")
         private RentaDto rentaDto;
 
         @Column(name = "id_sbdcpc")

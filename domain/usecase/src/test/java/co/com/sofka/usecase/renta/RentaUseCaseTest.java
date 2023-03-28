@@ -26,10 +26,12 @@ class RentaUseCaseTest {
     private RentaUseCase rentaUseCase;
     private static final String MESSAGE = "No se encuentra la renta con el id :";
 
+    Renta renta = new Renta(1, new Date(1995,10,27),1232.2,2);
+    Renta rentaActualizar = new Renta(1, new Date(1995,10,27),1200.2,5);
+
+
     @Test
     void crearRenta() {
-
-        Renta renta = new Renta(1, new Date(1995,10,27),1232.2,2);
 
         Mockito.when(rentaRepository.crearRenta(renta)).thenReturn(Mono.just(renta));
 
@@ -41,7 +43,6 @@ class RentaUseCaseTest {
 
     @Test
     void actualizarRentaExcepcion() {
-        Renta renta = new Renta(1, new Date(1995,10,27),1232.2,2);
 
         when(rentaRepository.actualizarRenta( 1,renta)).thenReturn(Mono.error(new IllegalArgumentException(MESSAGE)));
         StepVerifier.create(rentaUseCase.actualizarRenta( 1,renta))
@@ -52,9 +53,6 @@ class RentaUseCaseTest {
 
     @Test
     void actualizarRenta() {
-
-        Renta renta = new Renta(1, new Date(1995,10,27),1232.2,2);
-        Renta rentaActualizar = new Renta(1, new Date(1995,10,27),1200.2,5);
 
         Mockito.when(rentaRepository.crearRenta(renta)).thenReturn(Mono.just(renta));
 
@@ -91,8 +89,6 @@ class RentaUseCaseTest {
     @Test
     void buscarRenta() {
 
-        Renta renta = new Renta(1, new Date(1995,10,27),1232.2,2);
-
         when(rentaRepository.buscarRenta(1)).thenReturn(Mono.just(renta));
 
         StepVerifier.create(rentaUseCase.buscarRenta(1))
@@ -106,7 +102,6 @@ class RentaUseCaseTest {
 
     @Test
     void buscarRentaExcepciones() {
-        Renta renta = new Renta(1, new Date(1995,10,27),1232.2,2);
         when(rentaRepository.buscarRenta(1)).thenReturn(Mono.error(new IllegalArgumentException(MESSAGE)));
         StepVerifier.create(rentaUseCase.buscarRenta(1))
                 .verifyErrorMessage(MESSAGE);
@@ -114,8 +109,6 @@ class RentaUseCaseTest {
 
     @Test
     void listaRenta() {
-
-        Renta renta = new Renta(1, new Date(1995,10,27),1232.2,2);
 
         when(rentaRepository.listaRenta()).thenReturn(Flux.just(renta));
 

@@ -1,4 +1,4 @@
-package co.com.sofka.jpa.afiliacion.afiliacionMappers;
+package co.com.sofka.jpa.afiliacion.afiliacionmappers;
 
 import co.com.sofka.jpa.afiliacion.AfiliacionDto;
 import co.com.sofka.model.afiliacion.Afiliacion;

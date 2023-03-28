@@ -16,12 +16,12 @@ spring:
   main:
     allow-bean-definition-overriding: true
   datasource:
-    url: "jdbc:mysql://127.0.0.1:3306/arus"
-    username: "root"
-    password: "root"
-    driverClassName: "com.mysql.cj.jdbc.Driver"
+    url: "jdbc:postgresql://localhost:5432/postgres"
+    username: "postgres"
+    password: "postgres"
+    driverClassName: "org.postgresql.Driver"
   jpa:
-    databasePlatform: "org.hibernate.dialect.MySQL57Dialect"
+    databasePlatform: "org.hibernate.dialect.PostgreSQLDialect"
     hibernate:
       ddl-auto: "update"
     properties:

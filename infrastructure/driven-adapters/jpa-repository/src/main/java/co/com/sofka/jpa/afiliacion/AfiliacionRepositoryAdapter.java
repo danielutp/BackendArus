@@ -1,6 +1,6 @@
 package co.com.sofka.jpa.afiliacion;
 
-import co.com.sofka.jpa.afiliacion.afiliacionMappers.AfiliacionMappers;
+import co.com.sofka.jpa.afiliacion.afiliacionmappers.AfiliacionMappers;
 import co.com.sofka.jpa.helper.AdapterOperations;
 import co.com.sofka.model.afiliacion.Afiliacion;
 import co.com.sofka.model.afiliacion.gateways.AfiliacionRepository;

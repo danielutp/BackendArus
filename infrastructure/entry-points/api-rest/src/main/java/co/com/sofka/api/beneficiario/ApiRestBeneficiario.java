@@ -1,8 +1,5 @@
 package co.com.sofka.api.beneficiario;
 import co.com.sofka.model.beneficiario.Beneficiario;
-import co.com.sofka.model.beneficiario.gateways.BeneficiarioRepository;
-import co.com.sofka.model.causante.Causante;
-import co.com.sofka.model.causante.gateways.CausanteRepository;
 import co.com.sofka.usecase.beneficiario.BeneficiarioUseCase;
 import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;
@@ -10,6 +7,10 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+@CrossOrigin(
+        origins = {"http://localhost:4200"},
+        methods = {RequestMethod.GET, RequestMethod.PATCH, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE}
+)
 @RestController
 @RequestMapping(value = "/api", produces = MediaType.APPLICATION_JSON_VALUE)
 @AllArgsConstructor

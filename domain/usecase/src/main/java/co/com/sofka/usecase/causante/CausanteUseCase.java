@@ -12,8 +12,6 @@ public class CausanteUseCase {
 
     private final CausanteRepository causanteRepository;
 
-    private final EmitirPensionadoUseCase causantePublicador;
-
     public Mono<Causante> crearCausante(Causante causante) {
         return causanteRepository.crearCausante(causante);
     }

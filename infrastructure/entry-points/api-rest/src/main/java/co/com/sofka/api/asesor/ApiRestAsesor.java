@@ -1,6 +1,5 @@
 package co.com.sofka.api.asesor;
 import co.com.sofka.model.asesor.Asesor;
-import co.com.sofka.model.asesor.gateways.AsesorRepository;
 import co.com.sofka.usecase.asesor.AsesorUseCase;
 import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;

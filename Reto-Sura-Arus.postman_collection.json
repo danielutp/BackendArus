@@ -1,0 +1,803 @@
+{
+	"info": {
+		"_postman_id": "55347b1c-1e24-47b6-9bd0-73c60aec68c3",
+		"name": "Reto-Sura-Arus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13649217"
+	},
+	"item": [
+		{
+			"name": "Renta",
+			"item": [
+				{
+					"name": "Crear renta",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{       \r\n      \"fechaSolicitud\":\"1995-08-27\",\r\n      \"salario\":12233.1,\r\n      \"mesesCotizando\":5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/crearRenta",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"crearRenta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar renta",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{       \r\n      \"fechaSolicitud\":\"1995-08-27\",\r\n      \"salario\":1233.1,\r\n      \"mesesCotizando\":36\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/actualizarRenta/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"actualizarRenta",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista Renta",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreFondo\": \"Prueba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/listaRenta",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"listaRenta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscar Renta",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreFondo\": \"Prueba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/buscarRenta/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"buscarRenta",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borrar renta",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreFondo\": \"Prueba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/borrarRenta/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"borrarRenta",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Persona",
+			"item": [
+				{
+					"name": "Crear persona",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"identificacion\": 1088329117,\r\n    \"tipoIdentificacion\": \"Cedula\",\r\n    \"nombres\":\"DANIEL\",\r\n    \"apellidos\":\"Gil\",\r\n    \"fechaNacimiento\": \"1995-08-27\",\r\n    \"genero\":\"Masculino\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/crearPersona",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"crearPersona"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Persona",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"identificacion\": 1089,\r\n    \"tipoIdentificacion\": \"Cedula\",\r\n    \"nombres\":\"Daniel Steven\",\r\n    \"apellidos\":\"Gil\",\r\n    \"fechaNacimiento\": \"1995-08-27\",\r\n    \"genero\":\"Masculino\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/actualizarPersona/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"actualizarPersona",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista personas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/listaPersona",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"listaPersona"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscar persona",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/buscarPersona/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"buscarPersona",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar persona",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/borrarPersona/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"borrarPersona",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Causante",
+			"item": [
+				{
+					"name": "Crear causante",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n    \"persona\": {\r\n                \"id\": 4\r\n            }\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/crearCausante",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"crearCausante"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Causante",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"identificacion\": 1089,\r\n    \"tipoIdentificacion\": \"Cedula\",\r\n    \"nombres\":\"Daniel Steven\",\r\n    \"apellidos\":\"Gil\",\r\n    \"fechaNacimiento\": \"1995-08-27\",\r\n    \"genero\":\"Masculino\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/actualizarPersona/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"actualizarPersona",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista causantes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/listaCausante",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"listaCausante"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista causantes Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/listaCausante",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"listaCausante"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscar causante",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/buscarCausante/5",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"buscarCausante",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar causante",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/borrarCausante/10",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"borrarCausante",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Beneficiario",
+			"item": [
+				{
+					"name": "Crear beneficiario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"estudiante\":true,\r\n    \"dependiente\":false,\r\n    \"tipoBeneficiario\":\"papa\",\r\n    \"persona\": {\r\n                    \"id\":2\r\n                }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/crearBeneficiario",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"crearBeneficiario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar beneficiario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n   \"id\": 2,\r\n    \"estudiante\": true,\r\n    \"dependiente\": false,\r\n    \"tipoBeneficiario\": \"GANE\",\r\n    \"persona\": {\r\n        \"id\": 2        \r\n                }\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/actualizarBeneficiario/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"actualizarBeneficiario",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista beneficiario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/listaBeneficiario",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"listaBeneficiario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscar beneficiario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/buscarBeneficiario/5",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"buscarBeneficiario",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar beneficiario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/borrarBeneficiario/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"borrarBeneficiario",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Asesor",
+			"item": [
+				{
+					"name": "Crear asesor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Sa\",\r\n    \"persona\": {\r\n                    \"id\": 2\r\n                }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/crearAsesor",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"crearAsesor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Asesor",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"identificacion\": 1089,\r\n    \"tipoIdentificacion\": \"Cedula\",\r\n    \"nombres\":\"Daniel Steven\",\r\n    \"apellidos\":\"Gil\",\r\n    \"fechaNacimiento\": \"1995-08-27\",\r\n    \"genero\":\"Masculino\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/actualizarAsesor/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"actualizarAsesor",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista asesores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/listaAsesor",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"listaAsesor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscar asesor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/buscarAsesor/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"buscarAsesor",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar asesor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/borrarAsesor/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"borrarAsesor",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Afiliacion",
+			"item": [
+				{
+					"name": "Crear afiliacion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fechaAfiliacion\": \"2023-02-01T16:17:26.000+00:00\",\r\n    \"fondo\": \"PRUEBA\",    \r\n    \"renta\": {\r\n        \"id\": 1        \r\n    },  \r\n    \"asesor\": {\r\n        \"id\": 1,\r\n        \"persona\": {\r\n            \"id\": 1\r\n        }\r\n    },\r\n    \"causante\": {\r\n        \"id\": 1,\r\n        \"persona\": {\r\n            \"id\": 1\r\n        }\r\n    },\r\n    \"beneficiario\": {\r\n        \"id\": 1,\r\n        \"persona\": {\r\n            \"id\": 1\r\n        }\r\n    },    \r\n    \"idSbdcpc\": \"2\"\r\n    \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/crearAfiliacion",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"crearAfiliacion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Afiliacion",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"identificacion\": 1089,\r\n    \"tipoIdentificacion\": \"Cedula\",\r\n    \"nombres\":\"Daniel Steven\",\r\n    \"apellidos\":\"Gil\",\r\n    \"fechaNacimiento\": \"1995-08-27\",\r\n    \"genero\":\"Masculino\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/actualizarAsesor/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"actualizarAsesor",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista afiliacion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/listaAfiliacion",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"listaAfiliacion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscar afiliacion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/buscarAsesor/5",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"buscarAsesor",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar afiliacion",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/borrarAfiliacion/6",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"borrarAfiliacion",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

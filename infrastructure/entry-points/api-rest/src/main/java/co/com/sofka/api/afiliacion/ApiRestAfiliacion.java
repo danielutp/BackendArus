@@ -1,8 +1,5 @@
 package co.com.sofka.api.afiliacion;
 import co.com.sofka.model.afiliacion.Afiliacion;
-import co.com.sofka.model.afiliacion.gateways.AfiliacionRepository;
-import co.com.sofka.model.asesor.Asesor;
-import co.com.sofka.model.asesor.gateways.AsesorRepository;
 import co.com.sofka.usecase.afiliacion.AfiliacionUseCase;
 import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;

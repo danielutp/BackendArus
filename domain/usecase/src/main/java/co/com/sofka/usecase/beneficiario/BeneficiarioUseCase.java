@@ -12,12 +12,12 @@ public class BeneficiarioUseCase {
     private final BeneficiarioRepository beneficiarioRepository;
 
 
-    public Mono<Beneficiario> crearBeneficiario(Beneficiario asesor) {
-        return beneficiarioRepository.crearBeneficiario(asesor);
+    public Mono<Beneficiario> crearBeneficiario(Beneficiario beneficiario) {
+        return beneficiarioRepository.crearBeneficiario(beneficiario);
     }
 
-    public Mono<Beneficiario> actualizarBeneficiario(Integer id,Beneficiario asesor) {
-        return beneficiarioRepository.actualizarBeneficiario(id, asesor);
+    public Mono<Beneficiario> actualizarBeneficiario(Integer id,Beneficiario beneficiario) {
+        return beneficiarioRepository.actualizarBeneficiario(id, beneficiario);
     }
 
     public Mono<Void> borrarBeneficiario(Integer id) {
